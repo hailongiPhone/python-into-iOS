@@ -35,10 +35,10 @@ iOS中嵌入Python脚本简单概括来说包括两个部分，
      * 搜索路径由代码 Py_SetPythonHome() 指定
      * home的路径格式  
      ```
-       └── pythonHome(可以任意名称)  
-              └── lib  
-                   ├── python3.5  
-                   └── python35.zip  
+       └── pythonHome(可以任意名称)
+               └── lib
+                    ├── python3.5
+                    └── python35.zip  
      ```
 
   3. 代码中初始化解释器  
