@@ -15,17 +15,17 @@ iOS中嵌入Python脚本简单概括来说包括两个部分，
      Python解释器是以Framework的方式添加到iOS项目中。  
      [下载地址：Python-Apple-support](https://github.com/pybee/Python-Apple-support)  
      3.5版本包含了4个框架文件，依次添加
-```
+      ```
 	     Python.framework  (示例代码中由于文件过大没有添加)
 	     OpenSSl.framework
 	     XZ.framework
 	     BZip2.framework
-```
-  唯一需要注意的是要添加依赖库：
-```
+      ```
+     唯一需要注意的是要添加依赖库：
+      ```
          libz.tbd
          sqlite3.tbd  
-```
+      ```
   2. 添加标准库
      python35.zip文件在Python.Framework文件夹中路径如下  
          Python.Framework/Resources/lib/py
@@ -34,32 +34,32 @@ iOS中嵌入Python脚本简单概括来说包括两个部分，
      注意两点：
      * 搜索路径由代码 Py_SetPythonHome() 指定
      * home的路径格式  
-    ```
+     ```
      └── pythonHome(可以任意名称)
               └── lib
                    ├── python3.5
                    └── python35.zip
-    ```
+     ```
 
   3. 代码中初始化解释器  
     * 指定PythonHome
     * 调用Py_Initialize 完成初始化
-```
-  NSString * python_home = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"python"];
-  wchar_t * wpython_home = Py_DecodeLocale([python_home   UTF8String], NULL);
-  Py_SetPythonHome(wpython_home);
-  Py_Initialize();
-  PyEval_InitThreads(); //初始化多线程
-  PyRun_SimpleString("print('---tata---')");
-```  
+    ```
+    NSString * python_home = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"python"];
+    wchar_t * wpython_home = Py_DecodeLocale([python_home   UTF8String], NULL);
+    Py_SetPythonHome(wpython_home);
+    Py_Initialize();
+    PyEval_InitThreads(); //初始化多线程
+    PyRun_SimpleString("print('---tata---')");
+    ```  
   4. 添加Module搜索路径   
      可以通过sys添加搜索路径，可以通过这种方式指定加载沙盒中的代码，可以实现热更新。
-```
-  NSString * path = @"modulePath";
-  PyObject *sys = PyImport_ImportModule("sys");
-  PyObject *pathPO = PyObject_GetAttrString(sys, "path");
-  PyList_Append(pathPO, PyUnicode_FromFormat([path UTF8String]));
-  PyList_Append(pathPO, PyUnicode_FromFormat("."));
-  Py_XDECREF(pathPO);
-  Py_XDECREF(sys);
-```
+     ```
+     NSString * path = @"modulePath";
+     PyObject *sys = PyImport_ImportModule("sys");
+     PyObject *pathPO = PyObject_GetAttrString(sys, "path");
+     PyList_Append(pathPO, PyUnicode_FromFormat([path UTF8String]));
+     PyList_Append(pathPO, PyUnicode_FromFormat("."));
+     Py_XDECREF(pathPO);
+     Py_XDECREF(sys);
+     ```
