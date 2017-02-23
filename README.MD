@@ -41,8 +41,8 @@ iOS中嵌入Python脚本简单概括来说包括两个部分，
      ```
      └── pythonHome(可以任意名称)
             └── lib
-     ├── python3.5
-     └── python35.zip
+                ├── python3.5
+                └── python35.zip
      ```
 
   3. 代码中初始化解释器  
