@@ -32,13 +32,13 @@ iOS中嵌入Python脚本简单概括来说包括两个部分，
 
      解释器初始化时搜索标准库有一定的路径格式，需要注意
      注意两点：
-     1. 搜索路径由代码指定Py_SetPythonHome()指定
-     2. home的路径格式  
+     * 搜索路径由代码 Py_SetPythonHome() 指定
+     * home的路径格式  
     ```
      └── pythonHome(可以任意名称)
               └── lib
-              ├── python3.5
-              └── python35.zip
+                   ├── python3.5
+                   └── python35.zip
     ```
 
   3. 代码中初始化解释器  
@@ -51,8 +51,8 @@ iOS中嵌入Python脚本简单概括来说包括两个部分，
   Py_Initialize();
   PyEval_InitThreads(); //初始化多线程
   PyRun_SimpleString("print('---tata---')");
-```
-  4. 添加Module搜索路径
+```  
+  4. 添加Module搜索路径   
      可以通过sys添加搜索路径，可以通过这种方式指定加载沙盒中的代码，可以实现热更新。
 ```
   NSString * path = @"modulePath";
