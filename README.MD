@@ -37,6 +37,7 @@ iOS中嵌入Python脚本简单概括来说包括两个部分，
      注意两点：
      * 搜索路径由代码 Py_SetPythonHome() 指定
      * home的路径格式  
+
      ```
      └── pythonHome(可以任意名称)
             └── lib
