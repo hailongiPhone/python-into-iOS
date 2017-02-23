@@ -14,18 +14,21 @@ iOS中嵌入Python脚本简单概括来说包括两个部分，
   1. 添加解释器  
      Python解释器是以Framework的方式添加到iOS项目中。  
      [下载地址：Python-Apple-support](https://github.com/pybee/Python-Apple-support)  
-     3.5版本包含了4个框架文件，依次添加
+     3.5版本包含了4个框架文件，依次添加  
+
      ```
      Python.framework  (示例代码中由于文件过大没有添加)
      OpenSSl.framework
      XZ.framework
      BZip2.framework
+     ```  
+
+     唯一需要注意的是要添加依赖库:  
      ```
-     唯一需要注意的是要添加依赖库：
-      ```
-         libz.tbd
-         sqlite3.tbd  
-      ```
+     libz.tbd
+     sqlite3.tbd  
+     ```  
+     
   2. 添加标准库
      python35.zip文件在Python.Framework文件夹中路径如下  
          Python.Framework/Resources/lib/py
