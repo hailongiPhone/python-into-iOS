@@ -33,11 +33,13 @@ iOS中嵌入Python脚本简单概括来说包括两个部分，
      解释器初始化时搜索标准库有一定的路径格式，需要注意
      注意两点：
      1. 搜索路径由代码指定Py_SetPythonHome()指定
-     2. home的路径格式
+     2. home的路径格式  
+    ```
      └── pythonHome(可以任意名称)
               └── lib
               ├── python3.5
               └── python35.zip
+    ```
 
   3. 代码中初始化解释器  
     * 指定PythonHome
