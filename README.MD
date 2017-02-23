@@ -4,7 +4,7 @@
 ##### Embed Python in to iOS
 iOS中嵌入Python脚本简单概括来说包括两个部分，
   1. 主程序iOS App  
-     主程序可以以C语言的命令方式，控制解释器调用运行Python代码，Python代码可以通过一定的规则调用C代码  
+     主程序可以以C语言的函数调用方式，控制解释器调用运行Python代码，Python代码可以通过一定的规则调用C代码  
 
   2. 在主程序中可以运行的Python运行环境。  
      Python运行环境包括了解释器，标准库。解释器初始化的过程中会按照PythonHome指定的路径找到标准库并加载，从而完成Python运行环境的初始化过程。
@@ -15,10 +15,10 @@ iOS中嵌入Python脚本简单概括来说包括两个部分，
      Python解释器是以Framework的方式添加到iOS项目中。  
      [下载地址：Python-Apple-support](https://github.com/pybee/Python-Apple-support)  
      3.5版本包含了4个框架文件，一次添加
-	     Python
-	     OpenSSl
-	     XZ
-	     BZip2
+	     Python.framework  (示例代码中由于文件过大没有添加)
+	     OpenSSl.framework
+	     XZ.framework
+	     BZip2.framework
 
      唯一需要注意的是要添加依赖库：
          libz.tbd
