@@ -35,10 +35,10 @@ iOS中嵌入Python脚本简单概括来说包括两个部分，
      * 搜索路径由代码 Py_SetPythonHome() 指定
      * home的路径格式  
      ```
-     └── pythonHome(可以任意名称)
-              └── lib
-                   ├── python3.5
-                   └── python35.zip
+       └── pythonHome(可以任意名称)  
+              └── lib  
+                   ├── python3.5  
+                   └── python35.zip  
      ```
 
   3. 代码中初始化解释器  
@@ -53,8 +53,9 @@ iOS中嵌入Python脚本简单概括来说包括两个部分，
     PyRun_SimpleString("print('---tata---')");
     ```  
   4. 添加Module搜索路径   
-     可以通过sys添加搜索路径，可以通过这种方式指定加载沙盒中的代码，可以实现热更新。
-     ```
+     可以通过sys添加搜索路径，可以通过这种方式指定加载沙盒中的代码，可以实现热更新。  
+
+     ```  
      NSString * path = @"modulePath";
      PyObject *sys = PyImport_ImportModule("sys");
      PyObject *pathPO = PyObject_GetAttrString(sys, "path");
@@ -62,4 +63,4 @@ iOS中嵌入Python脚本简单概括来说包括两个部分，
      PyList_Append(pathPO, PyUnicode_FromFormat("."));
      Py_XDECREF(pathPO);
      Py_XDECREF(sys);
-     ```
+     ```  
