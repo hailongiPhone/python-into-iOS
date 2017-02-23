@@ -21,8 +21,7 @@ iOS中嵌入Python脚本简单概括来说包括两个部分，
 	     XZ.framework
 	     BZip2.framework
 ```
-
-     唯一需要注意的是要添加依赖库：
+  唯一需要注意的是要添加依赖库：
 ```
          libz.tbd
          sqlite3.tbd  
