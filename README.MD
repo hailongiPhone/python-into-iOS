@@ -16,10 +16,10 @@ iOS中嵌入Python脚本简单概括来说包括两个部分，
      [下载地址：Python-Apple-support](https://github.com/pybee/Python-Apple-support)  
      3.5版本包含了4个框架文件，依次添加
      ```
-      Python.framework  (示例代码中由于文件过大没有添加)
-      OpenSSl.framework
-      XZ.framework
-      BZip2.framework
+     Python.framework  (示例代码中由于文件过大没有添加)
+     OpenSSl.framework
+     XZ.framework
+     BZip2.framework
      ```
      唯一需要注意的是要添加依赖库：
       ```
