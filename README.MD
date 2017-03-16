@@ -49,14 +49,15 @@ iOS中嵌入Python脚本简单概括来说包括两个部分，
     * 指定PythonHome
     * 调用Py_Initialize 完成初始化
     
-    ```
+    ```
     NSString * python_home = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"python"];
     wchar_t * wpython_home = Py_DecodeLocale([python_home   UTF8String], NULL);
     Py_SetPythonHome(wpython_home);
     Py_Initialize();
     PyEval_InitThreads(); //初始化多线程
     PyRun_SimpleString("print('---tata---')");
-    ```  
+    ```  
+   
   4. 添加Module搜索路径   
      可以通过sys添加搜索路径，可以通过这种方式指定加载沙盒中的代码，可以实现热更新。  
 
